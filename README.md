@@ -1,30 +1,35 @@
-# InfiniteWorld
+<div align="center">
+<h1> :earth_africa: InfiniteWorld </h1>
+<h3>A Unified Scalable Simulation Framework for General Visual-Language Robot Interaction</h3>
+    
+Pengzhen Ren*, Min Li*, Zhen Luo*, Xinshuai Song*, Ziwei Chen*, Weijia Liufu*, Yixuan Yang*, Hao Zheng*
 
-This repo contains code for the paper:
+Rongtao Xu, Zitong Huang, Tongsheng Ding, Luyang Xie, Kaidong Zhang, Changfei Fu, Yang Liu, Liang Lin, Feng Zheng<sup>:email:</sup>, Xiaodan Liang<sup>:email:</sup>
 
-[Arxiv](https://arxiv.org/abs/2412.05789)
+<sup>* </sup>equal contribution.   <sup>:email:</sup> corresponding author.
 
-### InfiniteWorld: A Unified Scalable Simulation Framework for General Visual-Language Robot Interaction
-
-[TOC]
+[[`Paper`](https://arxiv.org/abs/2412.05789).]
+</div>
 
 ![20241202_215955](https://gitee.com/pzhren/img/raw/master/img/202412022200214.png)
 
-### Abstract
+### :rocket: Introduction
 
-Realizing scaling laws in embodied AI has become a focus. However, previous work has been scattered across diverse simulation platforms, with assets and models lacking unified interfaces, which has led to inefficiencies in research. To address this, we introduce InfiniteWorld, a unified and scalable simulator for general vision-language robot interaction built on Nvidia Isaac Sim. InfiniteWorld encompasses a comprehensive set of physics asset construction methods and generalized free robot interaction benchmarks. Specifically, we first built a unified and scalable simulation framework for embodied learning that integrates a series of improvements in generation-driven 3D asset construction, Real2Sim, automated annotation framework, and unified 3D asset processing. This framework provides a unified and scalable platform for robot interaction and learning. In addition, to simulate realistic robot interaction, we build four new general benchmarks, including scene graph collaborative exploration and open-world social mobile manipulation. The former is often overlooked as an important task for robots to explore the environment and build scene knowledge, while the latter simulates robot interaction tasks with different levels of knowledge agents based on the former. They can more comprehensively evaluate the embodied agent's capabilities in environmental understanding, task planning and execution, and intelligent interaction. We hope that this work can provide the community with a systematic asset interface, alleviate the dilemma of the lack of high-quality assets, and provide a more comprehensive evaluation of robot interactions.
+* We have built a unified 和 scalable simulation framework that integrates various improved 和 latest embodied asset reconstruction methods. This has greatly alleviated the community's plight of lacking high-quality embodied assets.
+* We build a complete web-based smart point cloud automatic annotation framework that supports distributed collaboration, AI assistance, 和 optional human-in-the-loop features. This provides strong support for complex robot interactions.
+* We designed systematic benchmarks for robot interaction, including scene graph collaborative exploration 和 open-world social mobile manipulation. This provides a comprehensive 和 systematic evaluation of the capabilities of embodied agents in perception, planning, execution, and communication.
 
-### Simulator
+### :page_facing_up: Simulator
 ![20241202_221116](https://gitee.com/pzhren/img/raw/master/img/202412022211180.png)
 
 Overview of the functions of InfiniteWorld simulator.  Our simulation platform supports different sensors, robot platforms, and teleoperation. In addition, it also realizes unlimited expansion of scene and object assets through generative and Sim2Real methods, and we have also built an annotation platform to reduce annotation costs and improve annotation quality.
-#### - Language-Driven Automatic Scene Generation 和 Editing
+#### 1.Language-Driven Automatic Scene Generation 和 Editing
 ![20241202_221141](https://gitee.com/pzhren/img/raw/master/img/202412022211858.png)Language-driven automatic scene generation 和 editing framework based on HOLODECK [77]. It can easily generate various interactive high-fidelity scenes that meet the requirements of users, including scene style replacement, object editing (e.g., adding/removing a  specific number of objects), and replacement (that is, replacing similar objects), etc.
-#### Depth-Prior-Constrained Real2Sim
+#### 2.Depth-Prior-Constrained Real2Sim
 
-#### - Annot8-3D
+#### 3.Annot8-3D
 
-#### - Unified 3D Asset
+#### 4.Unified 3D Asset
 
 ### Benchmark
 
