@@ -18,13 +18,13 @@ Realizing scaling laws in embodied AI has become a focus. However, previous work
 ![20241202_221116](https://gitee.com/pzhren/img/raw/master/img/202412022211180.png)
 
 Overview of the functions of InfiniteWorld simulator.  Our simulation platform supports different sensors, robot platforms, and teleoperation. In addition, it also realizes unlimited expansion of scene and object assets through generative and Sim2Real methods, and we have also built an annotation platform to reduce annotation costs and improve annotation quality.
-#### Language-Driven Automatic Scene Generation and Editing
+#### - Language-Driven Automatic Scene Generation 和 Editing
 ![20241202_221141](https://gitee.com/pzhren/img/raw/master/img/202412022211858.png)Language-driven automatic scene generation 和 editing framework based on HOLODECK [77]. It can easily generate various interactive high-fidelity scenes that meet the requirements of users, including scene style replacement, object editing (e.g., adding/removing a  specific number of objects), and replacement (that is, replacing similar objects), etc.
 #### Depth-Prior-Constrained Real2Sim
 
-#### Annot8-3D
+#### - Annot8-3D
 
-#### Unified 3D Asset
+#### - Unified 3D Asset
 
 ### Benchmark
 
@@ -35,5 +35,12 @@ Overview of the functions of InfiniteWorld simulator.  Our simulation platform s
 If you find this code useful in your work, please consider citing
 
 ```shell
-
+@misc{ren2024infiniteworld,
+    title={InfiniteWorld: A Unified Scalable Simulation Framework for General Visual-Language Robot Interaction},
+    author={Pengzhen Ren and Min Li and Zhen Luo and Xinshuai Song and Ziwei Chen and Weijia Liufu and Yixuan Yang and Hao Zheng and Rongtao Xu and Zitong Huang and Tongsheng Ding and Luyang Xie and Kaidong Zhang and Changfei Fu and Yang Liu and Liang Lin and Feng Zheng and Xiaodan Liang},
+    year={2024},
+    eprint={2412.05789},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO}
+}
 ```
