@@ -15,16 +15,16 @@ Rongtao Xu, Zitong Huang, Tongsheng Ding, Luyang Xie, Kaidong Zhang, Changfei Fu
 
 ### :rocket: Introduction
 
-* We have built a unified 和 scalable simulation framework that integrates various improved 和 latest embodied asset reconstruction methods. This has greatly alleviated the community's plight of lacking high-quality embodied assets.
-* We build a complete web-based smart point cloud automatic annotation framework that supports distributed collaboration, AI assistance, 和 optional human-in-the-loop features. This provides strong support for complex robot interactions.
-* We designed systematic benchmarks for robot interaction, including scene graph collaborative exploration 和 open-world social mobile manipulation. This provides a comprehensive 和 systematic evaluation of the capabilities of embodied agents in perception, planning, execution, and communication.
+* We have built a unified and scalable simulation framework that integrates various improved and latest embodied asset reconstruction methods. This has greatly alleviated the community's plight of lacking high-quality embodied assets.
+* We build a complete web-based smart point cloud automatic annotation framework that supports distributed collaboration, AI assistance, and optional human-in-the-loop features. This provides strong support for complex robot interactions.
+* We designed systematic benchmarks for robot interaction, including scene graph collaborative exploration and open-world social mobile manipulation. This provides a comprehensive and systematic evaluation of the capabilities of embodied agents in perception, planning, execution, and communication.
 
 ### :page_facing_up: Simulator
 ![20241202_221116](https://gitee.com/pzhren/img/raw/master/img/202412022211180.png)
 
 Overview of the functions of InfiniteWorld simulator.  Our simulation platform supports different sensors, robot platforms, and teleoperation. In addition, it also realizes unlimited expansion of scene and object assets through generative and Sim2Real methods, and we have also built an annotation platform to reduce annotation costs and improve annotation quality.
-#### 1.Language-Driven Automatic Scene Generation 和 Editing
-![20241202_221141](https://gitee.com/pzhren/img/raw/master/img/202412022211858.png)Language-driven automatic scene generation 和 editing framework based on HOLODECK [77]. It can easily generate various interactive high-fidelity scenes that meet the requirements of users, including scene style replacement, object editing (e.g., adding/removing a  specific number of objects), and replacement (that is, replacing similar objects), etc.
+#### 1.Language-Driven Automatic Scene Generation and Editing
+![20241202_221141](https://gitee.com/pzhren/img/raw/master/img/202412022211858.png)Language-driven automatic scene generation and editing framework based on HOLODECK [77]. It can easily generate various interactive high-fidelity scenes that meet the requirements of users, including scene style replacement, object editing (e.g., adding/removing a  specific number of objects), and replacement (that is, replacing similar objects), etc.
 #### 2.Depth-Prior-Constrained Real2Sim
 
 #### 3.Annot8-3D
