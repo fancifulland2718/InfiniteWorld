@@ -27,6 +27,8 @@ Overview of the functions of InfiniteWorld simulator.  Our simulation platform s
 ![20241202_221141](https://gitee.com/pzhren/img/raw/master/img/202412022211858.png)Language-driven automatic scene generation and editing framework based on HOLODECK [77]. It can easily generate various interactive high-fidelity scenes that meet the requirements of users, including scene style replacement, object editing (e.g., adding/removing a  specific number of objects), and replacement (that is, replacing similar objects), etc.
 #### 2.Depth-Prior-Constrained Real2Sim
 
+We use the depth prior to constrain the generation of the 3D model, which enhances simulation realism by integrating depth priors and normal priors into the Planar-based Gaussian Splatting Reconstruction (PGSR) framework.
+
 #### 3.Annot8-3D
 
 #### 4.Unified 3D Asset
