@@ -51,4 +51,3 @@ If you find this code useful in your work, please consider citing
     archivePrefix={arXiv},
     primaryClass={cs.RO}
 }
-```
