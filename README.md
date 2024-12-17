@@ -32,6 +32,8 @@ Additionally, this project contains Python scripts for post-processing reconstru
 
 #### 3.Annot8-3D
 
+The 3D annotation framework is open-sourced at: https://github.com/zh-plus/annot8-3d
+
 #### 4.Unified 3D Asset
 
 ### Benchmark
