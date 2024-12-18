@@ -1,7 +1,7 @@
 from nav_manipulate import main
 
 # task json path
-json_path ="/data1/lfwj/npc/selected_task2/104862501_172226556/2/config.json"
+json_path ="you should put the path of the json file here"
 # process image index
 img_index = [0]
 

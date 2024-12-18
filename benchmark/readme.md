@@ -43,9 +43,9 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
 
 4. Run the benchmark code.
     - Navigate to the `benchmark` folder.
-    - Run the `benchmark2.py`.
+    - Run the `Benchmark1.py` or `Benchmark2.py`.
      ```bash
-     python benchmark2.py
+     python Benchmark1.py
      ```
 
 Then you will see the simulation scene in the Isaac Sim window. Click the `Start Simulation` button on the left side. Wait a moment to observe the robot performing the tasks. You can use the middle mouse button in combination with the `Alt` key on the keyboard to switch between different viewpoints.
