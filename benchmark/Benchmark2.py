@@ -1,4 +1,4 @@
-from demo_manipulate import main
+from nav_manipulate import main
 
 # task json path
 json_path ="/data1/lfwj/npc/selected_task2/104862501_172226556/2/config.json"

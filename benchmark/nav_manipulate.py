@@ -33,7 +33,7 @@ def main(json_file, img_index, record = False):
 
 
     from BaseControl_position import BaseControl
-    from BaseGrasp_test import BaseGrasp
+    from BaseGrasp import BaseGrasp
     from transformations import quaternion_from_euler
     from benchmark_utils import check_wall_block, check_path_and_table_placement, init_robot_pos, calculate_path_length, create_imgs_folder, add_boundary_walls
  
