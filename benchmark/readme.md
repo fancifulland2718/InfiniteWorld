@@ -41,7 +41,7 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
 3. Get the task json of the scene.
 
 
-4. Run the benchmark code.
+4. Run the benchmark code.You should modify the scne file path and the map file path in the `arguments.py` and then  Modify the task json file path in `Benchmark1.py` and `Benchmark2.py`.After that, you can run them.
     - Navigate to the `benchmark` folder.
     - Run the `Benchmark1.py` or `Benchmark2.py`.
      ```bash
