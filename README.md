@@ -42,6 +42,17 @@ We provide code for converting 3D datasets into different formats in `3D format 
 
 ![20241202_220957](https://gitee.com/pzhren/img/raw/master/img/202412022210150.png)
 
+We have set up four `benchmarks` to evaluate the usability of `scenes` and `robots`:
+1. **Object Loco-Navigation**: The `robot` is tasked with locating a `specific item` within the `scene`. The robot must navigate the environment to find the designated object.
+   
+2. **Loco-Manipulations**: This benchmark extends the first by adding a `manipulation task`. The `robot` is instructed to navigate the scene, locate the `item`, and then perform a operation on it.
+
+3. **Scene Graph Collaborative Exploration**: `Multiple robots` work together to explore the `scene`. Their goal is to collaboratively build a comprehensive `knowledge map` of the environment.
+
+4. **Open World Social Mobile Manipulation**: This benchmark emphasizes `interaction` and `cooperation` between robots. The robots must engage in collaborative operations to achieve their objectives.
+
+To learn more about the code implementation details and robot setup, please click and refer to the the [`benchmark folder`](./benchmark/) and [`robot folder`](./robot/).
+
 # Citation
 
 If you find this code useful in your work, please consider citing
