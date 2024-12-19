@@ -1,0 +1,51 @@
+# Installation
+## Install isaac-sim
+Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so we inherit their dependencies. For more information, please refer to the official [Isaac Sim requirements](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/requirements.html#system-requirements) and [installation tutorial](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_workstation.html).
+
+
+## Set up conda environment
+1. After installing isaac sim, please remember the path of the `isaac-sim.sh` file. Generally, it is located at `../isaac-sim/pkg/isaac-sim4.0.0/isaac-sim.sh`.
+
+2. run the `setup_conda.sh` file to create the conda environment. The command line prompts you to enter the path of the isaac-sim.sh file. After entering the path, you will be prompted to enter the name of the conda environment you want to create. If it defaults to `infiniteworld`.
+    ```bash
+    bash setup_conda.sh
+    ```
+
+3. conda activates the environment that was just created.
+    ```bash
+    conda activate infiniteworld
+    ```
+
+4. pip install the dependencies.
+    ```bash
+    pip install -r requirements.txt
+    ```
+## Run the benchmark
+1. Prepare the dataset.
+    - You can download the dataset from [here](https://huggingface.co/datasets/hssd/hssd-scenes/tree/main/scenes). Use our provided script to generate `.usd` files from the `.glb` files. Use the ID number as the folder name, with the file name being `ID_number.usd`. 
+    - The folder should contain the `.usd` file and a `texture` folder.
+
+
+
+2. Get the occupancy map of the scene.
+    - Open the USD file in the Isaac Sim interface by going to `File` -> `Open`, then select the corresponding USD file to import it into the software.
+   - Click on `Isaac Utils` -> `Occupancy Map` to obtain the global obstacle map for the scene.
+   - In the `Origin` option, change the numerical values to set the center of diffusion in an open area, such as a living room without obstacles; otherwise, you will get an incorrect obstacle map.
+   - Set the `Upper bound z-axis` and `Lower bound z-axis` heights to 1.5 and 0.2, respectively.
+   - Click `BOUND SELECTION` to make the scene map closely fit the obstacle map.
+   - Click `CALCULATE` to generate the obstacle map.
+   - Click `VISUALIZE IMAGE` to save the map. At the same time, mark the coordinates of the top-left corner of the map. With x-axis pointing down and y-axis pointing right, the top-left corner coordinates are usually negative. Record the coordinates in the format `X_(x-coordinate)Y_(y-coordinate).png`, for example, `X_-0.5Y_-2.7.png`. It is best to store the map along with the USD file in the same folder.
+
+
+
+3. Get the task json of the scene.
+
+
+4. Run the benchmark code.You should modify the scne file path and the map file path in the `arguments.py` and then  Modify the task json file path in `Benchmark1.py` and `Benchmark2.py`.After that, you can run them.
+    - Navigate to the `benchmark` folder.
+    - Run the `Benchmark1.py` or `Benchmark2.py`.
+     ```bash
+     python Benchmark1.py
+     ```
+
+Then you will see the simulation scene in the Isaac Sim window. Click the `Start Simulation` button on the left side. Wait a moment to observe the robot performing the tasks. You can use the middle mouse button in combination with the `Alt` key on the keyboard to switch between different viewpoints.
