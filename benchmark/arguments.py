@@ -2,8 +2,8 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser("GT")
 
-    parser.add_argument("--scene_root_path",type=str,default="/data1/lfwj/hssd_scenes/final_selected_usd/")
-    parser.add_argument("--occupancy_map_root_path",type=str,default="/data1/lfwj/hssd_scenes/final_selected_usd/")
+    parser.add_argument("--scene_root_path",type=str,default="the file you should specify")
+    parser.add_argument("--occupancy_map_root_path",type=str,default="the file you should specify")
     parser.add_argument("--robot_usd_path",type=str,default="../robot/stretch.usd")
     
     parser.add_argument("--obj_in_isaac_path",type=str,default="/World/Scene/floorplan/furniture/")
