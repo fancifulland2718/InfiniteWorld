@@ -9,31 +9,10 @@ Ref:
 [Depth Pro: Sharp Monocular Metric Depth in Less Than a Second](https://github.com/apple/ml-depth-pro)  
 
 ## Depth-Regulaized PGSR Reconstruction
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparison Table</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        img {
-            width: 120px;
-            height: auto;
-        }
-    </style>
-</head>
+
 <body>
     <h2>Reconstruction Performance Comparison</h2>
     <table>
