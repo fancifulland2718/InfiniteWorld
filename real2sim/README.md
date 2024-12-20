@@ -9,10 +9,33 @@ Ref:
 [Depth Pro: Sharp Monocular Metric Depth in Less Than a Second](https://github.com/apple/ml-depth-pro)  
 
 ## Depth-Regulaized PGSR Reconstruction
-
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img {
+            width: 150px;
+            height: auto; /* 保持比例 */
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
 <body>
     <h2>Reconstruction Performance Comparison</h2>
     <table>
@@ -65,9 +88,9 @@ Ref:
             <td><img src="img/render_result/gt/0024.png" alt="Desk GT"></td>
         </tr>
     </table>
-    <p><strong>Figure 1:</strong> The reconstruction performance of GauStudio, SuGaR, PGSR, and our proposed method on real-world captured images is evaluated. Compared to 3DGS and SuGaR, PGSR provides an improved visual experience. Building upon PGSR, our method incorporates regularization loss terms for depth and normal vectors, achieving smoother planar surfaces, such as walls, doors, and screens, and demonstrating more robust handling of transparent surfaces like glass.</p>
 </body>
 </html>
+
 
 
 ## Usage
