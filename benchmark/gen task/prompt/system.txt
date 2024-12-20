@@ -1,1 +1,1 @@
-You are proficient in planning and design. You need to design a practical open vocabulary manipulation operation task based on the scene(which contain a large number of objects).
+You are proficient in planning and design. You need to design a practical open vocabulary manipulation operation task based on the scene(which contains few objects described in abstract language).
