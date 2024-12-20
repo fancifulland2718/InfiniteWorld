@@ -41,7 +41,7 @@ We provide code for converting 3D datasets into different formats in `3D format 
 ## Benchmark
 
 ![20241202_220957](https://gitee.com/pzhren/img/raw/master/img/202412022210150.png)
-Detailed benchmark descriptions are available at [`here`](/benchmark/readme.md).
+Detailed benchmark descriptions can be found [`here`](/benchmark/readme.md).
 ## Citation
 
 If you find this code useful in your work, please consider citing
