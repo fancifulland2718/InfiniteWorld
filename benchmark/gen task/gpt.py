@@ -2,9 +2,11 @@
 import base64
 import requests
 
+APIKEY = ""
+
 def gpt4(prompt_system, prompt):   # LLM
     # OpenAI API Key
-    api_key = ""
+    api_key = APIKEY
 
     headers = {
         "Content-Type": "application/json",
@@ -32,7 +34,7 @@ def gpt4(prompt_system, prompt):   # LLM
 
 def gpt3_5(prompt_system, prompt):
     # OpenAI API Key
-    api_key = ""
+    api_key = APIKEY
 
     headers = {
         "Content-Type": "application/json",
