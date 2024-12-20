@@ -9,58 +9,87 @@ Ref:
 [Depth Pro: Sharp Monocular Metric Depth in Less Than a Second](https://github.com/apple/ml-depth-pro)  
 
 ## Depth-Regulaized PGSR Reconstruction
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img {
+            width: 120px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reconstruction Performance Comparison</h2>
+    <table>
+        <tr>
+            <th></th>
+            <th>GauStudio</th>
+            <th>SuGaR</th>
+            <th>PGSR</th>
+            <th>Ours</th>
+            <th>GT</th>
+        </tr>
+        <tr>
+            <td>Screen</td>
+            <td><img src="img/render_result/gs/0112.png" alt="Screen GS"></td>
+            <td><img src="img/render_result/sugar/0112.png" alt="Screen SuGaR"></td>
+            <td><img src="img/render_result/pgsr/0112.png" alt="Screen PGSR"></td>
+            <td><img src="img/render_result/pgsr_dn/0112.png" alt="Screen Ours"></td>
+            <td><img src="img/render_result/gt/0112.png" alt="Screen GT"></td>
+        </tr>
+        <tr>
+            <td>Door</td>
+            <td><img src="img/render_result/gs/0016.png" alt="Door GS"></td>
+            <td><img src="img/render_result/sugar/0016.png" alt="Door SuGaR"></td>
+            <td><img src="img/render_result/pgsr/0016.png" alt="Door PGSR"></td>
+            <td><img src="img/render_result/pgsr_dn/0016.png" alt="Door Ours"></td>
+            <td><img src="img/render_result/gt/0016.png" alt="Door GT"></td>
+        </tr>
+        <tr>
+            <td>Wall</td>
+            <td><img src="img/render_result/gs/0019.png" alt="Wall GS"></td>
+            <td><img src="img/render_result/sugar/0019.png" alt="Wall SuGaR"></td>
+            <td><img src="img/render_result/pgsr/0019.png" alt="Wall PGSR"></td>
+            <td><img src="img/render_result/pgsr_dn/0019.png" alt="Wall Ours"></td>
+            <td><img src="img/render_result/gt/0019.png" alt="Wall GT"></td>
+        </tr>
+        <tr>
+            <td>Cabinet</td>
+            <td><img src="img/render_result/gs/0073.png" alt="Cabinet GS"></td>
+            <td><img src="img/render_result/sugar/0073.png" alt="Cabinet SuGaR"></td>
+            <td><img src="img/render_result/pgsr/0073.png" alt="Cabinet PGSR"></td>
+            <td><img src="img/render_result/pgsr_dn/0073.png" alt="Cabinet Ours"></td>
+            <td><img src="img/render_result/gt/0073.png" alt="Cabinet GT"></td>
+        </tr>
+        <tr>
+            <td>Desk</td>
+            <td><img src="img/render_result/gs/0024.png" alt="Desk GS"></td>
+            <td><img src="img/render_result/sugar/0024.png" alt="Desk SuGaR"></td>
+            <td><img src="img/render_result/pgsr/0024.png" alt="Desk PGSR"></td>
+            <td><img src="img/render_result/pgsr_dn/0024.png" alt="Desk Ours"></td>
+            <td><img src="img/render_result/gt/0024.png" alt="Desk GT"></td>
+        </tr>
+    </table>
+    <p><strong>Figure 1:</strong> The reconstruction performance of GauStudio, SuGaR, PGSR, and our proposed method on real-world captured images is evaluated. Compared to 3DGS and SuGaR, PGSR provides an improved visual experience. Building upon PGSR, our method incorporates regularization loss terms for depth and normal vectors, achieving smoother planar surfaces, such as walls, doors, and screens, and demonstrating more robust handling of transparent surfaces like glass.</p>
+</body>
+</html>
 
-```latex
-
-\begin{figure*}[htb]
-    \centering
-    \addtolength{\tabcolsep}{-6.5pt}
-    \footnotesize{
-        \setlength{\tabcolsep}{1pt} % Default value: 6pt
-        \begin{tabular}{p{8.2pt}ccccc}
-            & \textbf{GauStudio} & \textbf{SuGaR} & \textbf{PGSR} & \textbf{Ours} & \textbf{GT} \\
-
-            \raisebox{23pt}{\rotatebox[origin=c]{90}{Screen}}&
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gs/0112.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/sugar/0112.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr/0112.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr_dn/0112.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gt/0112.png} \\
-
-            \raisebox{23pt}{\rotatebox[origin=c]{90}{Door}}&
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gs/0016.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/sugar/0016.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr/0016.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr_dn/0016.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gt/0016.png} \\
-
-            \raisebox{23pt}{\rotatebox[origin=c]{90}{Wall}}&
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gs/0019.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/sugar/0019.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr/0019.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr_dn/0019.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gt/0019.png} \\
-
-            \raisebox{23pt}{\rotatebox[origin=c]{90}{Cabinet}}&
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gs/0073.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/sugar/0073.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr/0073.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr_dn/0073.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gt/0073.png} \\
-
-            \raisebox{23pt}{\rotatebox[origin=c]{90}{Desk}}&
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gs/0024.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/sugar/0024.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr/0024.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/pgsr_dn/0024.png} &
-            \includegraphics[width=0.18\textwidth]{./img/render_result/gt/0024.png} \\
-        \end{tabular}
-    }
-    \vspace{-5pt}
-    \caption{The reconstruction performance of GauStudio, SuGaR, PGSR, and our proposed method on real-world captured images is evaluated. Compared to 3DGS and SuGaR, PGSR provides an improved visual experience. Building upon PGSR, our method incorporates regularization loss terms for depth and normal vectors, achieving smoother planar surfaces, such as walls, doors, and screens, and demonstrating more robust handling of transparent surfaces like glass.}
-    \label{fig:compare_of_reconstruct}
-\end{figure*}
-```
 
 ## Usage
 
