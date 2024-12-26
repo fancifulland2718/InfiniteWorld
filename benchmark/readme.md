@@ -39,7 +39,8 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
 
 
 3. Get the task json of the scene.
-
+    - You can generate your own tasks based on `gen task/task_gen.py`, you can choose a scene id of HSSD scene to generate the tasks in the scene. Don't forget to fill your openai key in `gpt.py`.
+    - You can get the semantic info from `semantic/semantic.py`, and you need to unzip the `scenes-uncluttered` file first.
 
 4. Run the benchmark code.You should modify the scne file path and the map file path in the `arguments.py` and then  Modify the task json file path in `Benchmark1.py` and `Benchmark2.py`.After that, you can run them.
     - Navigate to the `benchmark` folder.
