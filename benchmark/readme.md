@@ -50,3 +50,18 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
      ```
 
 Then you will see the simulation scene in the Isaac Sim window. Click the `Start Simulation` button on the left side. Wait a moment to observe the robot performing the tasks. You can use the middle mouse button in combination with the `Alt` key on the keyboard to switch between different viewpoints.
+
+## Keyboard Control
+
+After completing the benchmark tests, if you want to control the robot's movement in the scene using the `keyboard`, it can be executed by following these steps:
+
+- modify the `--keyboard_json_path` in the [`arguments.py`](/benchmark/arguments.py) to the desired `.json file`
+- run the [`demo_keyboard_control.py`](/benchmark/demo_keyboard_control.py) .
+  
+You can control the stretch robot with keyboard command:
+
+- W: Move Forward
+- S: Move Backward
+- A: Turn Left
+- D: Turn Right
+- Q: Exit

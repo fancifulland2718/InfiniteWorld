@@ -312,7 +312,7 @@ class BaseControl:
         q: Quit
         """
         length = 0.1
-        angle = math.pi/90
+        angle = math.pi/30
         print("Start controlling the robot arm with the keyboard, press 'q' to quit.")
         while True:
             print("Current position:", self.trans_pos())
