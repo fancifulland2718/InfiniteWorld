@@ -14,7 +14,9 @@ def get_args():
     parser.add_argument("--arm3_path",type=str,default="/World/stretch/link_arm_l3")
     parser.add_argument("--arm4_path",type=str,default="/World/stretch/link_arm_l4")
     parser.add_argument("--grasp_path",type=str,default="/World/stretch/link_gripper_s3_body")
-    parser.add_argument("--camera_path",type=str,default="/World/stretch/camera_color_frame/rgb_camera") 
+    parser.add_argument("--camera_path",type=str,default="/World/stretch/camera_color_frame/rgb_camera")
+    
+    parser.add_argument("--keyboard_json_path",type=str,default="the json file you should specify") 
 
     args = parser.parse_args([])
 
