@@ -6,6 +6,7 @@ import math
 import time
 import numpy as np
 import matplotlib.pyplot as plt
+from keyboard_interact import KeyboardController
 
 class BaseControl:
     def __init__(self,robot,obj_prim=None,next_obj_prim=None):
@@ -27,10 +28,11 @@ class BaseControl:
         self.error_ang = 0.02
 
         pos_static, _, _, _ = self.trans_pos()
-        self.z = pos_static[2] + 0.02 # Set height to original height + 0.02 to avoid ground collision
+        self.z = pos_static[2]
         self.obj = obj_prim
         self.next_obj = next_obj_prim
         self.grasp_pos = "/World/stretch/link_gripper_s3_body/joint_grasp_center"
+        self.keyboard = KeyboardController()
     
     
     def trans_pos(self):
@@ -164,14 +166,13 @@ class BaseControl:
         # get current position and yaw
         pos, roll, pitch, yaw = self.trans_pos()
         newpos=[pos[0],pos[1],self.z]
-        prim = XFormPrim("/World/stretch", name="stretch")
         
         # Turn
         final_angle_diff = self.trans2pi(target)
 
         while abs(final_angle_diff) >self.error_ang:
             euler2q = quaternion_from_euler(roll, pitch, yaw + self.angular_velocity * final_angle_diff/abs(final_angle_diff))
-            prim.set_world_pose(orientation=np.array(euler2q),position=newpos)
+            self.prim.set_world_pose(orientation=np.array(euler2q),position=newpos)
             
             if is_record:
                 img_index[0] += 1
@@ -265,5 +266,73 @@ class BaseControl:
             world.step(render=True)
 
 
+    def forward_by_mode(self, length, world, img_index, is_record = False, camera=None, process_img_folder=None):
+        """
+        Move forward
+        :param length: Forward movement distance, positive for forward, negative for backward
+        :param world: World handle
+        :param img_index: Image index for recording
+        :param is_record: Flag to indicate if recording is enabled
+        :param camera: Camera object for capturing images
+        :param process_img_folder: Folder to save the recorded images
+        """
+        # Get the current position, roll, pitch, and yaw
+        origin_pos, roll, pitch, yaw = self.trans_pos()
+        euler2q = quaternion_from_euler(roll, pitch, yaw)
+        final_pos = origin_pos + length * np.array([math.cos(yaw), math.sin(yaw), 0])
+        error = math.dist(origin_pos, final_pos)
+        pos = origin_pos
+        k = 0.5 # Proportional gain
+
+        while abs(error) > self.error_dis:
+            pos, roll, pitch, yaw = self.trans_pos()
+            pos += k * np.sign(length) * self.linear_velocity * np.array([math.cos(yaw), math.sin(yaw), 0])
+            self.prim.set_world_pose(orientation=np.array(euler2q), position=pos)
+            error = math.dist(pos, final_pos)
+
+            if is_record:
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+                    
+            if self.is_grasp:
+                grasp_pos = Robot(self.grasp_pos) 
+                grasp_position, _  = grasp_pos.get_world_pose()
+                self.obj.set_world_pose(position=np.array(grasp_position))
+            
+            world.step(render=True)
+    
+    
+    def move_by_keyboard(self, world, is_record=False, img_index=None, camera=None, process_img_folder=None):
+        """
+        Control the robot arm movement using the keyboard.
+        w: Move forward
+        s: Move backward
+        a: Turn left
+        d: Turn right
+        q: Quit
+        """
+        length = 0.1
+        angle = math.pi/30
+        print("Start controlling the robot arm with the keyboard, press 'q' to quit.")
+        while True:
+            print("Current position:", self.trans_pos())
+            tmp = self.keyboard.read()
+            if tmp == 'w':
+                self.forward_by_mode(length=length, world =world, img_index=img_index, is_record = is_record, camera=camera, process_img_folder=process_img_folder)
+ 
+            elif tmp == 's':
+                self.forward_by_mode(length=-length, world =world, img_index=img_index, is_record = is_record, camera=camera, process_img_folder=process_img_folder)               
+
+            elif tmp == 'a':
+                self.turn_by_mode(target=angle, world=world, img_index=img_index, is_record = is_record, camera=camera, process_img_folder=process_img_folder)
+                
+            elif tmp == 'd':
+                self.turn_by_mode(target=-angle, world=world, img_index=img_index, is_record = is_record, camera=camera, process_img_folder=process_img_folder)
+                
+            elif tmp == 'q':
+                print("Quit")
+                break
+            
+            world.step(render=True)
 
             
