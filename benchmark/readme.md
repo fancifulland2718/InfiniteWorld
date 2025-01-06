@@ -51,18 +51,11 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
 
 Then you will see the simulation scene in the Isaac Sim window. Click the `Start Simulation` button on the left side. Wait a moment to observe the robot performing the tasks. You can use the middle mouse button in combination with the `Alt` key on the keyboard to switch between different viewpoints.
 
-**Below are examples of the demonstration videos corresponding to Benchmark 1 and Benchmark 2.**
+**You can view the demonstration videos through the following links.**
 
 
-<iframe 
-src="https://www.bilibili.com/video/BV199rVYBEnf?t=4.9" scrolling="no" frameborder="no" framespacing="0" 
-allowfullscreen="true" height=640 width=1280> 
-</iframe>
-
-
-<iframe 
-src="https://www.bilibili.com/video/BV1RXrVYuE8d?t=3.5" scrolling="no"  frameborder="no" framespacing="0" allowfullscreen="true" height=640 width=1280> 
-</iframe>
+- [Benchmark1](https://www.bilibili.com/video/BV199rVYBEnf?t=4.9)
+- [Benchmark2](https://www.bilibili.com/video/BV1RXrVYuE8d?t=3.5)
 
 
 ## Keyboard Control
