@@ -55,27 +55,14 @@ Then you will see the simulation scene in the Isaac Sim window. Click the `Start
 
 
 <iframe 
-src="https://www.bilibili.com/video/BV199rVYBEnf?t=4.9" 
-scrolling="no" 
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=640 
-width=1280> 
+src="https://www.bilibili.com/video/BV199rVYBEnf?t=4.9" scrolling="no" frameborder="no" framespacing="0" 
+allowfullscreen="true" height=640 width=1280> 
 </iframe>
 
 
 <iframe 
-src="https://www.bilibili.com/video/BV1RXrVYuE8d?t=3.5" 
-scrolling="no"  
-frameborder="no" 
-framespacing="0" 
-allowfullscreen="true" 
-height=640 
-width=1280> 
+src="https://www.bilibili.com/video/BV1RXrVYuE8d?t=3.5" scrolling="no"  frameborder="no" framespacing="0" allowfullscreen="true" height=640 width=1280> 
 </iframe>
-
-https://www.bilibili.com/video/BV199rVYBEnf?t=4.9
 
 
 ## Keyboard Control
