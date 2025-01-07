@@ -84,7 +84,7 @@ class BaseControl:
             euler2q = quaternion_from_euler(roll, pitch, yaw + self.angular_velocity * angle_diff / abs(angle_diff) )
             self.prim.set_world_pose(orientation=np.array(euler2q),position=np.array([x1, y1, self.z]))
             # get process image
-            if is_record:
+            if is_record and camera.get_rgb().any():
                 img_index[0] += 1
                 plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
 
@@ -110,7 +110,7 @@ class BaseControl:
             dy = y2 - y1
             self.prim.set_world_pose(position=np.array([x1 + self.linear_velocity*dx/math.sqrt(dx**2 + dy**2),y1 + self.linear_velocity*dy/math.sqrt(dx**2 + dy**2), self.z]))
             
-            if is_record:
+            if is_record and camera.get_rgb().any():
                 img_index[0] += 1
                 plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
 
@@ -133,7 +133,7 @@ class BaseControl:
                 euler2q = quaternion_from_euler(roll, pitch, yaw+self.angular_velocity*final_angle_diff/abs(final_angle_diff))
                 self.prim.set_world_pose(orientation=np.array(euler2q))
                 
-                if is_record:
+                if is_record and camera.get_rgb().any():
                     img_index[0] += 1
                     plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
 
@@ -174,7 +174,7 @@ class BaseControl:
             euler2q = quaternion_from_euler(roll, pitch, yaw + self.angular_velocity * final_angle_diff/abs(final_angle_diff))
             self.prim.set_world_pose(orientation=np.array(euler2q),position=newpos)
             
-            if is_record:
+            if is_record and camera.get_rgb().any():
                 img_index[0] += 1
                 plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
                     
@@ -215,7 +215,7 @@ class BaseControl:
             euler2q = quaternion_from_euler(roll, pitch, yaw + self.angular_velocity*angle_diff/abs(angle_diff))
             self.prim.set_world_pose(orientation=np.array(euler2q)) 
             
-            if is_record:
+            if is_record and camera.get_rgb().any():
                 img_index[0] += 1
                 plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
 
@@ -248,7 +248,7 @@ class BaseControl:
         while abs(angle_diff) > self.error_ang:
             euler2q = quaternion_from_euler(roll, pitch, yaw+self.angular_velocity*angle_diff/abs(angle_diff))
             self.prim.set_world_pose(orientation=np.array(euler2q))
-            if is_record:
+            if is_record and camera.get_rgb().any():
                 img_index[0] += 1
                 plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
             world.step(render=True)
@@ -290,7 +290,7 @@ class BaseControl:
             self.prim.set_world_pose(orientation=np.array(euler2q), position=pos)
             error = math.dist(pos, final_pos)
 
-            if is_record:
+            if is_record and camera.get_rgb().any():
                 img_index[0] += 1
                 plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
                     
