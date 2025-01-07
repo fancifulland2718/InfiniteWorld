@@ -4,7 +4,7 @@ from omni.isaac.dynamic_control import _dynamic_control
 import math
 from omni.isaac.core.robots import Robot
 from transformations import euler_from_quaternion
-
+import matplotlib.pyplot as plt
 
 class BaseGrasp:
     def __init__(self, arm1, arm2, arm3, arm4, lift, grasp, obj_prim, robot):
@@ -103,32 +103,55 @@ class BaseGrasp:
 
 
 
-    def grasp_by_target(self, target,world):
+    def grasp_by_target(self, target, world, camera=None, img_index=None, is_record=False, process_img_folder=None):
         """
         Move the robotic arm to the target position and grasp the object.
         :param target: Target position [length, height]
         :param world: Simulation world object
         """
 
-        self.dc.set_dof_position_target(self.dof_lift, target[1]) # Lift the robotic arm to the specified height
+        time_step = int(target[1]/self.lift_speed)
+        for i in range(time_step):
+            self.dc.set_dof_position_target(self.dof_lift, self.lift_speed * i)
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+            world.step(render=True)  
+        # self.dc.set_dof_position_target(self.dof_lift, target[1]) # Lift the robotic arm to the specified height
         self.lift = target[1] # Update lift height
         
         for i in range(0,101):
             self.dc.set_dof_position_target(self.dof_grasp_left,i * 0.1) # Open the gripper
             self.dc.set_dof_position_target(self.dof_grasp_right,i * 0.1)
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
             world.step(render=True)
 
 
-        self.dc.set_dof_position_target(self.dof_arm1,target[0]/4)
-        self.dc.set_dof_position_target(self.dof_arm2,target[0]/4)
-        self.dc.set_dof_position_target(self.dof_arm3,target[0]/4)
-        self.dc.set_dof_position_target(self.dof_arm4,target[0]/4)
+        time_step = int(target[0]/4 / self.arm_speed)
+        dof_arms = [self.dof_arm1, self.dof_arm2, self.dof_arm3, self.dof_arm4]
+        for i in range(len(dof_arms)):
+            for j in range(time_step):
+                self.dc.set_dof_position_target(dof_arms[i],self.arm_speed * j)
+                if is_record and camera.get_rgb().any():
+                    img_index[0] += 1
+                    plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+                world.step(render=True)
+
+        # self.dc.set_dof_position_target(self.dof_arm1,target[0]/4)
+        # self.dc.set_dof_position_target(self.dof_arm2,target[0]/4)
+        # self.dc.set_dof_position_target(self.dof_arm3,target[0]/4)
+        # self.dc.set_dof_position_target(self.dof_arm4,target[0]/4)
         self.arm = target[0] # Update arm length
 
 
         for i in range(100,0,-1):
             self.dc.set_dof_position_target(self.dof_grasp_left,i * 0.1) # Close the gripper
             self.dc.set_dof_position_target(self.dof_grasp_right,i * 0.1)
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
             world.step(render=True)
         
         self.is_grasping = True
@@ -139,6 +162,10 @@ class BaseGrasp:
             self.dc.set_dof_position_target(self.dof_arm2,tmp_length)
             self.dc.set_dof_position_target(self.dof_arm3,tmp_length)
             self.dc.set_dof_position_target(self.dof_arm4,tmp_length)
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+            world.step(render=True)
             tmp_length -= self.arm_speed
             if tmp_length <= 0:
                 tmp_length = 0
@@ -157,7 +184,7 @@ class BaseGrasp:
             world.step(render=True)    
 
     
-    def release_by_target(self,target,world):
+    def release_by_target(self, target, world, is_record=False, camera=None, process_img_folder=None, img_index=None):
         '''
         Move the robotic arm to the target position and release the object.
         :param target: Target position [length, height]
@@ -166,6 +193,11 @@ class BaseGrasp:
         tmp_height = target[1]
         while abs(tmp_height - self.lift) > 0.01 and self.lift <= 1:
             self.dc.set_dof_position_target(self.dof_lift,self.lift + self.lift_speed * (tmp_height - self.lift)/abs(tmp_height - self.lift))
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+            world.step(render=True)
+            
             self.lift = self.lift + self.lift_speed * (tmp_height - self.lift)/abs(tmp_height - self.lift)
 
             self.d = (-0.02, -0.4 - self.arm, 0.06 + self.lift)
@@ -185,6 +217,11 @@ class BaseGrasp:
             self.dc.set_dof_position_target(self.dof_arm2,tmp_length)
             self.dc.set_dof_position_target(self.dof_arm3,tmp_length)
             self.dc.set_dof_position_target(self.dof_arm4,tmp_length)
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+            world.step(render=True)
+            
             tmp_length += self.arm_speed
             world.step(render=True)
             self.arm = tmp_length*4
@@ -203,20 +240,42 @@ class BaseGrasp:
         for i in range(0,101):
             self.dc.set_dof_position_target(self.dof_grasp_left,i/10) # Open the gripper
             self.dc.set_dof_position_target(self.dof_grasp_right,i/10) 
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
             world.step(render=True)
 
         self.is_grasping = False  # Set the grasping status to false 
 
-        self.dc.set_dof_position_target(self.dof_arm4,0)
-        self.dc.set_dof_position_target(self.dof_arm3,0)
-        self.dc.set_dof_position_target(self.dof_arm2,0)
-        self.dc.set_dof_position_target(self.dof_arm1,0)
-        self.arm = 0 # Update arm length
+        tmp_length = target[0] / 4
+        while tmp_length > 0:
+            self.dc.set_dof_position_target(self.dof_arm1,tmp_length)
+            self.dc.set_dof_position_target(self.dof_arm2,tmp_length)
+            self.dc.set_dof_position_target(self.dof_arm3,tmp_length)
+            self.dc.set_dof_position_target(self.dof_arm4,tmp_length)
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+            world.step(render=True)
+            tmp_length -= self.arm_speed
+            if tmp_length <= 0:
+                tmp_length = 0
+            self.arm = tmp_length # 更新arm长度
+            
+        # self.dc.set_dof_position_target(self.dof_arm4,0)
+        # self.dc.set_dof_position_target(self.dof_arm3,0)
+        # self.dc.set_dof_position_target(self.dof_arm2,0)
+        # self.dc.set_dof_position_target(self.dof_arm1,0)
+        # self.arm = 0 # Update arm length
         world.step(render=True)
 
         for i in range(100,0,-1):
             self.dc.set_dof_position_target(self.dof_grasp_left,i * 0.1) # Close the gripper
             self.dc.set_dof_position_target(self.dof_grasp_right,i * 0.1) 
+            if is_record and camera.get_rgb().any():
+                img_index[0] += 1
+                plt.imsave(process_img_folder + "/"+f"frame_{img_index[0]:04d}.png",camera.get_rgb())
+                    
             world.step(render=True)
 
 
