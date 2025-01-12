@@ -36,7 +36,9 @@ The 3D annotation framework is open-sourced at: https://github.com/zh-plus/annot
 
 ### Unified 3D Asset
 
-We provide code for converting 3D datasets into different formats in `3D format convert`. Using `ply2obj_replica.py`, you can convert Replica data from PLY format to OBJ format, but it requires installing the `pymeshlab` library. The script `obj_usd.py` allows you to convert objects in OBJ format to USD format for use in Isaac Sim. For batch conversions, you can use `obj_usd0.py`, though its compatibility with Isaac Sim is limited. Additionally, `pkl_obj.py` converts files from PKL to OBJ format, which is the first step in adapting the Objaverse dataset for use in Isaac Sim.
+We provide code for converting 3D datasets into different formats in `3D format convert`. We have the scene converter and object converter. The scene converter requires installing the `pymeshlab` library. The script `./object_format_convert/obj_usd.py` allows you to convert objects in OBJ format to USD format for use in Isaac Sim. For batch conversions, you can use `obj_usd_multi.py`, though its compatibility with Isaac Sim is limited. Additionally, `./object_format_convert/pkl_obj.py` converts files from PKL to OBJ format, which is the first step in adapting the Objaverse dataset for use in Isaac Sim.
+
+The example of object converter is in the corresponding file folders. Due to the large size of the scene, the examples are in the link [`here`](https://pan.baidu.com/s/1F3cvNVf9hZG3h7AOD4FM0g?pwd=1234 ) with the ['password'](1234).
 
 ## Benchmark
 
