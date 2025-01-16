@@ -48,6 +48,8 @@ And here is the link for our 3D object assets list:
 | Objaverse (Holodeck) | 940      | 4,042,937| Small objects         | [Download](https://pan.baidu.com/s/17BPY5CV5szfTSXDuVKPtPQ)        | etmn     |
 | ClothesNet       | 11         | 3,051    | Clothing  | [Download Link](https://sites.google.com/view/clothesnet/)           | -        |
 
+### Generation Scene
+We provide scripts in `generation scene` to import from the scene generated json file. You can convert them to usd format using `./multi_place.py`. Note: you need to change 'scene_files' 'output_files' and 'obj_data_usd' to your own paths in [code](https://github.com/pzhren/InfiniteWorld/blob/master/generation%20scene/multi_place.py#L189).
 
 ## Benchmark
 
