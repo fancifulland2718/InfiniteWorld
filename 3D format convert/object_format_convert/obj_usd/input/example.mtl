@@ -1,0 +1,13 @@
+# Blender 4.0.0 MTL File: 'None'
+# www.blender.org
+
+newmtl AlbedoMaterial.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/Dts/data/objaverse/assets/2a0a574f9e374702af8c415fce296f45/input/2a0f766afcb14e9c888e436ecd2665fe/albedo.jpg
+map_Bump -bm 1.000000 D:/Dts/data/objaverse/assets/2a0a574f9e374702af8c415fce296f45/input/2a0f766afcb14e9c888e436ecd2665fe/normal.jpg
