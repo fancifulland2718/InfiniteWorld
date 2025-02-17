@@ -1,8 +1,8 @@
 # Post-Process
 
-Scripts for post-processing the Stanford Polygon File Format(.ply) mesh and transform to Wavefront Object(.obj) format.
+Scripts for converting Stanford Polygon File Format (.ply) meshes to Wavefront Object (.obj) format with additional processing steps.
 
-## Installation：
+## Installation
 
 ```shell
 conda env create -f env.yaml
@@ -15,9 +15,16 @@ conda activate 3d
 ./process.sh <path-to-ply>
 ```
 
-### Step 1. 
-Based on the plane color and the corresponding formula, select the ground plane.  
-### Step 2. 
-In the upcoming command line, input the ground plane formula's x, y, z, d values as prompted (e.g., if the ground plane formula is `x + 2y + 3z + 1 = 0`, input `1 2 3 1` in sequence).  
-### Step 3. 
-Wait for the process to complete. Once done, an `obj` file will be generated in the `ply` directory.  
+### Processing Steps
+
+1. **Ground Plane Selection**  
+    The system identifies the ground plane based on color attributes and mathematical formulas.
+
+2. **Plane Parameters Input**  
+    When prompted, enter the ground plane equation coefficients (x, y, z, d).  
+    Example: For plane equation `x + 2y + 3z + 1 = 0`, input `1 2 3 1`.
+
+3. **File Generation**  
+    The process will generate an `.obj` file in the same directory as the input `.ply` file.
+
+**Note:** Among these steps, only Mesh simplification was used for baseline method comparisons when it does not represent a methodological difference since it was produced after all reconstruction methods. Specially, these processing steps are provided for future simulation purposes.
