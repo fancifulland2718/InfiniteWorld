@@ -38,7 +38,7 @@ def keep_largest_k_connected_components(file_path, k):
     mesh.remove_triangles_by_mask(~triangles_to_keep)
 
     # Save the new mesh
-    new_file_path = file_path.replace(".ply", f"_{k}_denoised.ply")
+    new_file_path = file_path.replace(".ply", "_denoised.ply")
     o3d.io.write_triangle_mesh(new_file_path, mesh, write_ascii=False)
     print(f"Top {k} connected components mesh saved to {new_file_path}")
 
