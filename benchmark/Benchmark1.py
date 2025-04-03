@@ -1,7 +1,7 @@
 from nav import main
 
 # task json path
-json_path ="you should put the path of the json file here"
+json_path ="you should put the path of the json file here, for example: /home/user/infiniteworld/task/task_ID/config.json"
 # process image index
 img_index = [0]
 
