@@ -6,14 +6,14 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
 ## Set up conda environment
 1. After installing isaac sim, please remember the path of the `isaac-sim.sh` file. Generally, it is located at `../isaac-sim/pkg/isaac-sim4.0.0/isaac-sim.sh`.
 
-2. run the `setup_conda.sh` file to create the conda environment. The command line prompts you to enter the path of the isaac-sim.sh file. After entering the path, you will be prompted to enter the name of the conda environment you want to create. If it defaults to `infiniteworld`.
+2. run the `setup_conda.sh` file to create the conda environment. The command line prompts you to enter the path of the isaac-sim.sh file. After entering the path, you will be prompted to enter the name of the conda environment you want to create. If it defaults to `isaac-sim`.
     ```bash
     bash setup_conda.sh
     ```
 
 3. conda activates the environment that was just created.
     ```bash
-    conda activate infiniteworld
+    conda activate isaac-sim
     ```
 
 4. pip install the dependencies.

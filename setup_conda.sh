@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-set -eo &> /dev/null
+set -eo &>/dev/null
 
 # Make sure that the ISAAC_SIM_PATH variable is set correctly
-if [[ -d ~/.local/share/ov/pkg ]] && [[ $(ls ~/.local/share/ov/pkg | grep isaac_sim) ]]; 
-then
-  FOUND_ISAAC_SIM_PATH=$(ls -d ~/.local/share/ov/pkg/* | grep isaac_sim | tail -n 1) 
+if [[ -d ~/.local/share/ov/pkg ]] && [[ $(ls ~/.local/share/ov/pkg | grep isaac_sim) ]]; then
+  FOUND_ISAAC_SIM_PATH=$(ls -d ~/.local/share/ov/pkg/* | grep isaac_sim | tail -n 1)
   echo "We found Isaac Sim installed at [4m$FOUND_ISAAC_SIM_PATH[0m. OmniGibson will use it by default."
   read -p "If you want to use a different one, please type in the path containing isaac-sim.sh here (press enter to skip) >>> " ISAAC_SIM_PATH
   ISAAC_SIM_PATH=${ISAAC_SIM_PATH:-$FOUND_ISAAC_SIM_PATH}
@@ -19,9 +18,8 @@ while [[ ! -f "${ISAAC_SIM_PATH}/isaac-sim.sh" ]]; do
 done
 echo -e "\nUsing Isaac Sim at [4m$ISAAC_SIM_PATH[0m\n"
 
-
-# Choose venv name 
-echo "The new conda environment will be named [4minfiniteworld[0m by default."
+# Choose venv name
+echo "The new conda environment will be named [4misaac-sim[0m by default."
 read -p "If you want to use a different name, please type in here (press enter to skip) >>> " conda_name
 conda_name=${conda_name:-isaac-sim}
 echo -e "\nUsing [4m$conda_name[0m as the conda environment name\n"
@@ -45,22 +43,21 @@ touch ${CONDA_PREFIX}/etc/conda/deactivate.d/env_vars.sh
 # We add some preprocessing information so that the Isaac Sim paths are linked to this environment upon startup
 # See https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux for reference
 CONDA_ACT_FILE="${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh"
-echo '#!/bin/sh' > ${CONDA_ACT_FILE}
-echo "export LD_LIBRARY_PATH_OLD=\$LD_LIBRARY_PATH" >> ${CONDA_ACT_FILE}
-echo "export PYTHONPATH_OLD=\$PYTHONPATH" >> ${CONDA_ACT_FILE}
-echo "source ${ISAAC_SIM_PATH}/setup_conda_env.sh" >> ${CONDA_ACT_FILE}
+echo '#!/bin/sh' >${CONDA_ACT_FILE}
+echo "export LD_LIBRARY_PATH_OLD=\$LD_LIBRARY_PATH" >>${CONDA_ACT_FILE}
+echo "export PYTHONPATH_OLD=\$PYTHONPATH" >>${CONDA_ACT_FILE}
+echo "source ${ISAAC_SIM_PATH}/setup_conda_env.sh" >>${CONDA_ACT_FILE}
 
 CONDA_DEACT_FILE="${CONDA_PREFIX}/etc/conda/deactivate.d/env_vars.sh"
-echo '#!/bin/sh' > ${CONDA_DEACT_FILE}
-echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH_OLD" >> ${CONDA_DEACT_FILE}
-echo "export PYTHONPATH=\$PYTHONPATH_OLD" >> ${CONDA_DEACT_FILE}
-echo "unset ISAAC_PATH" >> ${CONDA_DEACT_FILE}
-echo "unset CARB_APP_PATH" >> ${CONDA_DEACT_FILE}
-echo "unset LD_LIBRARY_PATH_OLD" >> ${CONDA_DEACT_FILE}
-echo "unset PYTHONPATH_OLD" >> ${CONDA_DEACT_FILE}
+echo '#!/bin/sh' >${CONDA_DEACT_FILE}
+echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH_OLD" >>${CONDA_DEACT_FILE}
+echo "export PYTHONPATH=\$PYTHONPATH_OLD" >>${CONDA_DEACT_FILE}
+echo "unset ISAAC_PATH" >>${CONDA_DEACT_FILE}
+echo "unset CARB_APP_PATH" >>${CONDA_DEACT_FILE}
+echo "unset LD_LIBRARY_PATH_OLD" >>${CONDA_DEACT_FILE}
+echo "unset PYTHONPATH_OLD" >>${CONDA_DEACT_FILE}
 
 # Cycle conda environment so that all dependencies are propagated
 conda deactivate
 
 echo -e "\nIsaac-sim successfully installed! Please run [4mconda activate $conda_name[0m to activate the environment.\n"
-
