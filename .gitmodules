@@ -1,3 +1,4 @@
 [submodule "real2sim/depth-real2sim"]
 	path = real2sim/depth-real2sim
 	url = https://github.com/Faccococo/PGSR.git
+	branch = main
