@@ -9,7 +9,9 @@ Rongtao Xu, Zitong Huang, Tongsheng Ding, Luyang Xie, Kaidong Zhang, Changfei Fu
 <sup>* </sup>equal contribution.   <sup>:email:</sup> corresponding author.
 
 [[`Paper`](https://arxiv.org/abs/2412.05789).]
-[[`Workshop`](https://github.com/SMM-challenge)]
+[[`Workshop/Web`](https://smm-challenge.github.io/)]
+
+
 </div>
 
 ![20241202_215955](https://gitee.com/pzhren/img/raw/master/img/202412022200214.png)
