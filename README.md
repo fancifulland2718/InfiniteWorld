@@ -69,7 +69,7 @@ Detailed benchmark descriptions can be found [`here`](/benchmark/readme.md).
 - [Benchmark2](https://www.bilibili.com/video/BV1RXrVYuE8d?)
 - [Benchmark3](https://www.bilibili.com/video/BV1FTNCedExu?)
 - [Benchmark4](https://www.bilibili.com/video/BV1KbPdeKE1K?)
-- [Physical grabbing-based desktop organization in a reconstruction scenario](/Physics_Grasp/Physical%20grabbing-based%20desktop%20organization%20in%20a%20reconstruction%20scenario.mp4)
+- [Physical grabbing-based desktop organization in a reconstruction scenario](/Physical%20grabbing-based%20desktop%20organization%20in%20a%20reconstruction%20scenario.mp4)
 - [Humanoid and quadruped robot explore in the room](https://www.bilibili.com/video/BV1Js8DzPE4P?)
 
 You can click on the links to view the videos directly.
