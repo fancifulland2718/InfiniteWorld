@@ -65,7 +65,6 @@ Detailed benchmark descriptions can be found [`here`](/benchmark/readme.md).
 
 ## Demo
 
-## Demo Videos
 - [Benchmark1](https://www.bilibili.com/video/BV199rVYBEnf?)
 - [Benchmark2](https://www.bilibili.com/video/BV1RXrVYuE8d?)
 - [Benchmark3](https://www.bilibili.com/video/BV1FTNCedExu?)
