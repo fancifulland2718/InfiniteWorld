@@ -68,7 +68,7 @@ Detailed benchmark descriptions can be found [`here`](/benchmark/readme.md).
 - [Benchmark1](https://www.bilibili.com/video/BV199rVYBEnf?)
 - [Benchmark2](https://www.bilibili.com/video/BV1RXrVYuE8d?)
 - [Benchmark3](https://www.bilibili.com/video/BV1FTNCedExu?)
-- [Benchmark4：Real robot demonstration.](https://www.bilibili.com/video/BV1KbPdeKE1K?)
+- [Benchmark4：Real robot demonstration](https://www.bilibili.com/video/BV1KbPdeKE1K?)
 - [Physical grabbing-based desktop organization in a reconstruction scenario](https://www.bilibili.com/video/BV1PH8RzQEWf?)
 - [Humanoid and quadruped robot explore in the room](https://www.bilibili.com/video/BV1Js8DzPE4P?)
 
