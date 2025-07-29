@@ -65,7 +65,8 @@ Then you will see the simulation scene in the Isaac Sim window. Click the `Start
 After completing the benchmark tests, if you want to control the robot's movement in the scene using the `keyboard`, it can be executed by following these steps:
 
 - modify the `--keyboard_json_path` in the [`arguments.py`](/benchmark/arguments.py) to the desired `.json file`
-- run the [`demo_keyboard_control.py`](/benchmark/demo_keyboard_control.py) .
+- run the [`demo_keyboard_control.py`] to control stretch robot (/benchmark/demo_keyboard_control.py) .
+- run the [`demo_keyboard_control_h1.py`] to control Unitree H1 robot (/benchmark/demo_keyboard_control_h1.py) 
   
 
 You can control the stretch robot with keyboard command:
@@ -75,3 +76,10 @@ You can control the stretch robot with keyboard command:
 - A: Turn Left
 - D: Turn Right
 - Q: Exit
+
+You can control the h1 robot with keyboard command:
+
+- NUMPAD 8/UP: Move forward
+- NUMPAD 4/LEFT: Turn left
+- NUMPAD 6/RIGHT: Turn right
+- ESC: Exit
