@@ -64,6 +64,17 @@ We integrated our dataset on Hugging Face, for more details please refer to [thi
 Detailed benchmark descriptions can be found [`here`](/benchmark/readme.md).
 
 ## Demo
+
+- [Benchmark1](https://www.bilibili.com/video/BV199rVYBEnf?)
+- [Benchmark2](https://www.bilibili.com/video/BV1RXrVYuE8d?)
+- [Benchmark3](https://www.bilibili.com/video/BV1FTNCedExu?)
+- [Benchmark4](https://www.bilibili.com/video/BV1KbPdeKE1K?)
+- [Physical grabbing-based desktop organization in a reconstruction scenario](https://www.bilibili.com/video/BV1PH8RzQEWf?)
+- [Humanoid and quadruped robot explore in the room](https://www.bilibili.com/video/BV1Js8DzPE4P?)
+
+You can click on the links to view the videos directly.
+=======
+
 ## Citation
 
 If you find this code useful in your work, please consider citing
