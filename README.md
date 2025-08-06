@@ -70,6 +70,7 @@ Detailed benchmark descriptions can be found [`here`](/benchmark/readme.md).
 - [Benchmark3](https://www.bilibili.com/video/BV1FTNCedExu?)
 - [Benchmark4：Real robot demonstration](https://www.bilibili.com/video/BV1KbPdeKE1K?)
 - [Physical grabbing-based desktop organization in a reconstruction scenario](https://www.bilibili.com/video/BV1PH8RzQEWf?)
+- [Example of point target navigation for an agent in Real2Sim scenario](https://www.bilibili.com/video/BV1D7tAz1EuZ/?spm_id_from=333.1387.list.card_archive.click&vd_source=b01e665629cc1f07444fb56603b20deb)
 - [Humanoid and quadruped robot explore in the room](https://www.bilibili.com/video/BV1Js8DzPE4P?)
 
 You can click on the links to view the videos directly.
