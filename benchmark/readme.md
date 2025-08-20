@@ -22,8 +22,8 @@ Infiniteworld is built upon NVIDIA's Omniverse and Isaac Sim 4.0.0 platforms, so
     ```
 ## Run the benchmark
 1. Prepare the dataset.
-    - You can download the dataset from [here](https://huggingface.co/datasets/hssd/hssd-scenes/tree/main/scenes). Use our provided script to generate `.usd` files from the `.glb` files. Use the ID number as the folder name, with the file name being `ID_number.usd`. 
-    - The folder should contain the `.usd` file and a `texture` folder.
+    - You can download the dataset from [here](https://huggingface.co/datasets/hssd/hssd-scenes/tree/main/scenes). Use our provided [script](/3D%20format%20convert/scene_format_convert/glb2usd.py) to generate `.usd` files from the `.glb` files. Use the ID number as the folder name, with the file name being `ID_number.usd`. 
+    - The folder should contain the `.usd` file and a `textures` folder.
 
 
 
