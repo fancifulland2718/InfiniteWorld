@@ -1,0 +1,180 @@
+InfiniteWorld Architecture Diagram (Text Version)
+================================================
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                        USER INTERFACE LAYER                         │
+│                          用户接口层                                   │
+├─────────────┬─────────────┬─────────────┬─────────────────────────────┤
+│ Keyboard    │ Web         │ API         │ Benchmarks                  │
+│ Control     │ Interface   │ Interface   │ 基准测试                     │
+│ 键盘控制     │ Web界面      │ API接口      │                            │
+└─────────────┴─────────────┴─────────────┴─────────────────────────────┘
+                                    ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│                        TASK PLANNING LAYER                          │
+│                          任务规划层                                   │
+├─────────────┬─────────────┬─────────────┬─────────────────────────────┤
+│ GPT Task    │ Semantic    │ Path        │ Action                      │
+│ Generation  │ Understanding│ Planning    │ Planning                    │
+│ GPT任务生成  │ 语义理解      │ 路径规划     │ 动作规划                     │
+└─────────────┴─────────────┴─────────────┴─────────────────────────────┘
+                                    ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│                        ROBOT CONTROL LAYER                          │
+│                         机器人控制层                                  │
+├─────────────┬─────────────┬─────────────┬─────────────────────────────┤
+│ Stretch     │ H1 Humanoid │ Grasp       │ Navigation                  │
+│ Control     │ Control     │ Control     │ Control                     │
+│ Stretch控制  │ H1控制       │ 抓取控制     │ 导航控制                     │
+└─────────────┴─────────────┴─────────────┴─────────────────────────────┘
+                                    ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│                      SCENE MANAGEMENT LAYER                         │
+│                         场景管理层                                    │
+├─────────────┬─────────────┬─────────────┬─────────────────────────────┤
+│ Scene       │ Real2Sim    │ Asset       │ Format                      │
+│ Generation  │ 真实重建     │ Management  │ Conversion                  │
+│ 场景生成     │             │ 资产管理     │ 格式转换                     │
+└─────────────┴─────────────┴─────────────┴─────────────────────────────┘
+                                    ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│                      SIMULATION ENGINE LAYER                        │
+│                         仿真引擎层                                    │
+├─────────────┬─────────────┬─────────────┬─────────────────────────────┤
+│ Isaac Sim   │ Omniverse   │ PyBullet    │ Physics                     │
+│ 4.0.0       │ Platform    │ Support     │ Engine                      │
+│             │ 协作平台     │ 物理引擎     │ 物理引擎                     │
+└─────────────┴─────────────┴─────────────┴─────────────────────────────┘
+                                    ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│                    HARDWARE ABSTRACTION LAYER                       │
+│                         硬件抽象层                                    │
+├─────────────┬─────────────┬─────────────┬─────────────────────────────┤
+│ GPU         │ Sensor      │ Rendering   │ I/O                         │
+│ Computing   │ Simulation  │ Engine      │ Interface                   │
+│ GPU计算      │ 传感器仿真   │ 渲染引擎     │ I/O接口                      │
+└─────────────┴─────────────┴─────────────┴─────────────────────────────┘
+
+COMPONENT RELATIONSHIPS DIAGRAM
+===============================
+
+Isaac Sim Core Engine:
+   ├── BaseControl (位置控制)
+   ├── BaseGrasp (抓取控制)  
+   ├── Navigation (导航)
+   └── H1 Control (人形机器人)
+
+PyBullet Integration:
+   └── Navigation Support (导航辅助)
+
+Omniverse Platform:
+   └── Scene Generation (场景生成)
+
+Control Systems:
+   ├── BaseControl → GPT Tasks
+   ├── BaseGrasp → GPT Tasks
+   ├── Navigation → Path Planning
+   └── All Controls → Benchmarks
+
+Scene Management:
+   ├── Scene Generation → Real2Sim
+   ├── Real2Sim → Asset Management
+   └── Asset Management → Format Conversion
+
+Task Planning:
+   ├── GPT Tasks → Benchmarks
+   ├── Path Planning → Benchmarks  
+   ├── Semantic Understanding → Benchmarks
+   └── All Planning → Execution
+
+DATA FLOW PATTERN
+=================
+
+User Input (语言/键盘) 
+    ↓
+Task Understanding (GPT解析)
+    ↓
+Scene Loading (场景加载)
+    ↓
+Robot Initialization (机器人初始化)
+    ↓
+Path Planning (路径规划)
+    ↓
+Action Execution (动作执行)
+    ↓
+Environment Perception (环境感知)
+    ↓
+Task Evaluation (任务评估)
+    ↓
+Results & Feedback (结果反馈)
+
+KEY INTEGRATION PATTERNS
+========================
+
+1. Isaac Lab Integration:
+   - Direct API calls via omni.isaac.*
+   - Dynamic control through _dynamic_control
+   - Sensor simulation (Camera, LiDAR)
+   - Physics engine integration
+
+2. PyBullet Integration:
+   - Auxiliary physics calculations
+   - Fast prototyping support
+   - Performance benchmarking
+
+3. Asset Pipeline:
+   - USD (native) ← GLB ← Various formats
+   - Automatic material conversion
+   - Physics property preservation
+
+4. Multi-Robot Support:
+   - Unified control interface
+   - Configurable robot parameters
+   - Standardized USD descriptions
+
+TECHNOLOGY STACK
+================
+
+Core Frameworks:
+- NVIDIA Isaac Sim 4.0.0
+- Omniverse Platform
+- PyBullet 3.2.6
+- PyTorch (AI/ML)
+
+Data Formats:
+- USD (Universal Scene Description)
+- GLB/GLTF (Web standard)
+- OBJ (General purpose)
+- PLY (Point clouds)
+
+Programming Languages:
+- Python (主要)
+- CUDA (GPU computing)
+- C++ (Performance critical)
+
+AI/ML Libraries:
+- OpenAI API (GPT integration)
+- Open3D (3D processing)
+- NumPy/SciPy (数值计算)
+- Matplotlib (可视化)
+
+DEPLOYMENT ARCHITECTURE
+=======================
+
+Development Environment:
+   ├── Isaac Sim Workstation
+   ├── Conda Environment
+   ├── GPU Computing Resources
+   └── Development Tools
+
+Production Environment:
+   ├── Cloud Rendering Cluster
+   ├── Distributed Computing
+   ├── Asset Storage System
+   └── Web Interface Server
+
+Integration Points:
+   ├── Robot Hardware Interface
+   ├── External Sensor Systems  
+   ├── Cloud Services API
+   └── User Application Interface
